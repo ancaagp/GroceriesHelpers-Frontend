@@ -1,0 +1,24 @@
+.groceriesList.input-field.col.s12 {
+    padding: 0;
+}
+
+.addRequestBtn {
+    /* float: right; */
+    margin-top: 1%;
+}
+
+.modal.modal-fixed-footer {
+    height: 70%
+}
+
+.card-image {
+    text-align: center;
+}
+
+.helpCard {
+    width: 70%;
+}
+
+.completedBtn {
+    background-color: goldenrod;
+}

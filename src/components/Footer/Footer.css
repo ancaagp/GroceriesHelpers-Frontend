@@ -1,0 +1,15 @@
+/* .page-footer {
+    flex-shrink: 0;
+    background-color: #213037;
+    z-index: 9;
+    margin-top: 80%;
+    position: relative;
+} */
+
+.page-footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    z-index: 9;
+    background-color: #213037;
+  }
