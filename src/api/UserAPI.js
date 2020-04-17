@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const endpoint = 'http://localhost:4000/api/v1';
+const endpoint = `${process.env.REACT_APP_API_URL}`;
 
 class UserAPI {
     static register = (user) => {
