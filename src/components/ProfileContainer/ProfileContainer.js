@@ -7,7 +7,7 @@ import Profile from './Profile';
 import HelpCardList from './HelpCardList/HelpCardList';
 import UserAPI from '../../api/UserAPI';
 import icon from '../Main/images//account (1).png';
-import image from '../Main/images//papaya.png';
+import image from '../Main/images//papaya1.png';
 
 // This wrapper prevents the Modal from re-rendering
 // Modal component from react-materialize stops working if its re-rendered (setState)
@@ -28,10 +28,11 @@ class ModalWrapper extends React.Component {
 class ProfileContainer extends React.Component {
 
     state = {
-        userRequests: [],
         user: {},
         myGroceries: [],
         myGroceriesHelper: [],
+        isCompletedModal: false,
+        groceryToComplete: null
     }
 
     submitButtonDelegate = {}
@@ -59,16 +60,38 @@ class ProfileContainer extends React.Component {
         console.log(this.state.myGroceries, this.state.myGroceriesHelper)
     }
 
+    handleEdit = (user) => {
+        UserAPI.update(user)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    user: res.data
+                })
+            })
+        console.log(this.state.user)
+    }
+
 
     onCompleteSelected = (groceryToComplete) => {
-        GroceriesAPI.complete(groceryToComplete)
-        .then((res) => {
-            let updatedGrocery = res.data;
-            let groceries = this.state.myGroceries;
-            let groceryIndex = groceries.findIndex(gro => gro._id === updatedGrocery._id);
-            groceries[groceryIndex] = updatedGrocery;
-            this.setState({myGroceries: groceries});
+        this.setState({
+            isCompletedModal: true,
+            groceryToComplete: groceryToComplete
         });
+    }
+
+    onCompleteConfirmed = () => {
+        GroceriesAPI.complete(this.state.groceryToComplete)
+            .then((res) => {
+                let updatedGrocery = res.data;
+                let groceries = this.state.myGroceries;
+                let groceryIndex = groceries.findIndex(gro => gro._id === updatedGrocery._id);
+                groceries[groceryIndex] = updatedGrocery;
+                this.setState({ myGroceries: groceries, groceryToComplete: null, isCompletedModal: false });
+            });
+    }
+
+    onCompleteCanceled = () => {
+        this.setState({ groceryToComplete: null, isCompletedModal: false });
     }
 
 
@@ -76,9 +99,9 @@ class ProfileContainer extends React.Component {
         GroceriesAPI.create(newRequest)
             .then(res => {
                 let createdRequest = res.data;
-                let userRequests = this.state.userRequests;
-                userRequests.push(createdRequest);
-                this.setState({ userRequests: userRequests });
+                let myGroceries = this.state.myGroceries;
+                myGroceries.push(createdRequest);
+                this.setState({ myGroceries: myGroceries });
                 this.submitButtonDelegate.clearHelpForm();
             });
     }
@@ -103,7 +126,7 @@ class ProfileContainer extends React.Component {
                         <div id="helpFormRoot" className="container">
                             <div id="profile-page-header" className="card">
                                 <div className="card-image waves-effect waves-block waves-light">
-                                    {/* <img className="activator" src={image} alt="user background" /> */}
+                                    <img className="activator" src={image} alt="user background" />
                                     <h3>Welcome, {this.state.user.firstName}</h3>
                                 </div>
                             </div>
@@ -113,17 +136,18 @@ class ProfileContainer extends React.Component {
                 </div>
 
                 <div className="row">
-                <div className ="col s12">
-                <div className="container">
+                    <div className="col s12">
+                        <div className="container">
                             {/* User requests */}
                             <Profile
                                 user={this.state.user}
+                                handleEdit={this.handleEdit}
                             />
+                        </div>
+                    </div>
+
+
                 </div>
-</div>
-
-
-</div>
 
 
                 {/* Modal */}
@@ -138,7 +162,7 @@ class ProfileContainer extends React.Component {
                                         <Button flat modal="close" node="button" onClick={this.onSubmit} waves="green">Submit</Button>
                                     ]}
                                     bottomSheet={false}
-                                    fixedFooter={true}
+                                    fixedFooter={false}
                                     header="Add a new request"
                                     open={false}
                                     options={{ dismissible: false }}
@@ -158,18 +182,37 @@ class ProfileContainer extends React.Component {
 
                 <div className="row">
                     <div className="col s12">
-                    <div className="container">
-                    {/* About user */}
-                    <HelpCardList
-                        user={this.state.user}
-                        myGroceries={this.state.myGroceries}
-                        myGroceriesHelper={this.state.myGroceriesHelper}
-                        onCompleteSelected={this.onCompleteSelected}
-                    />
+                        <div className="container">
+                            {/* About user */}
+                            <HelpCardList
+                                user={this.state.user}
+                                myGroceries={this.state.myGroceries}
+                                myGroceriesHelper={this.state.myGroceriesHelper}
+                                onCompleteSelected={this.onCompleteSelected}
+                            />
+                        </div>
                     </div>
-                    </div>
-                    </div>
+                </div>
+                {this.state.isCompletedModal &&
 
+                    <ModalWrapper>
+                        <Modal
+                            actions={[
+                                <Button flat modal="close" node="button" onClick={this.onCompleteCanceled} waves="green">Cancel</Button>,
+                                <Button flat modal="close" node="button" onClick={this.onCompleteConfirmed} waves="green">Complete</Button>
+                            ]}
+                            bottomSheet={false}
+                            fixedFooter={false}
+                            header="Are you sure?"
+                            open={true}
+                            options={{ dismissible: false }}
+                            root={document.getElementById('root')}
+                        >
+                            Are you sure you want to complete: {this.state.groceryToComplete.groceries}
+
+                        </Modal>
+                    </ModalWrapper>
+                }
 
             </>
         )

@@ -7,9 +7,10 @@
 } */
 
 .page-footer {
-    position:absolute;
+    position:fixed;
+    height: 70px;
     bottom:0;
     width:100%;
-    z-index: 9;
+    /* z-index: 9; */
     background-color: #213037;
   }

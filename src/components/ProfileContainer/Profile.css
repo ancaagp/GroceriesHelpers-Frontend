@@ -15,10 +15,30 @@
     text-align: center;
 }
 
-.helpCard {
-    width: 70%;
-}
-
 .completedBtn {
     background-color: goldenrod;
+}
+
+.editProfile input {
+    color: white;
+    text-align: center;
+    font-size: larger;
+}
+
+.btnEdit {
+    margin: auto;
+}
+
+/* .about {
+    font-size: 2vh;
+} */
+
+.divider {
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.card-content.white-text {
+    padding: 24px 24px 0 24px;
 }

@@ -5,52 +5,61 @@ import image from '../../Main/images/papaya.png';
 
 class HelpCard extends React.Component {
 
-    render () {
-        return (
-<div>
+  onCompletedClick = () => {
+    this.props.onCompleteSelected(this.props.grocery);
+  }
 
-<CollectionItem className="avatar">
-  <div className="helpCard">
-  <img
-          alt=""
-          className="circle"
-          src={image}
-        />
-        <div className="title">
-        {LabelConversion.getStatus(this.props.grocery.status)}
-        </div>
-        <p>
-        Shopping list: {this.props.grocery.groceries}
-          <br />
+  render() {
+    return (
+      <div>
+
+        <CollectionItem className="avatar">
+          <div className="helpCard">
+            <img
+              alt=""
+              className="circle"
+              src={image}
+            />
+            <div className="title">
+              {LabelConversion.getStatus(this.props.grocery.status)}
+            </div>
+            <p>
+              Shopping list: {this.props.grocery.groceries}
+              <br />
           Address: {this.props.grocery.address}
-          <br />
+              <br />
           Additional information: {this.props.grocery.description}
-          <br />
+              <br />
           Timeline: {LabelConversion.getTimeline(this.props.grocery.timeline)}
-        </p>
-  </div>
+            </p>
+          </div>
 
-        {/* <a 
+          {/* <a 
           className="secondary-content"
           
         > Mark as completed<i className="material-icons" onClick={this.props.onCompleteSelected(this.props.grocery)}>check</i></a> */}
- <Button
-    node="button"
-    className="completedBtn"
-    style={{
-      marginRight: '5px'
-    }}
-    waves="light"
-    href={this.props.onCompleteSelected(this.props.grocery)}
-  >
-    Mark as completed
-  </Button>
-      </CollectionItem>
+
+        {this.props.grocery.status !== 'C' &&
+              <Button
+              node="button"
+              className="completedBtn"
+              style={{
+                marginRight: '5px'
+              }}
+              waves="light"
+              onClick={this.onCompletedClick}
+              >
+              Mark as completed
+              </Button>
+
+        }
+         
+        </CollectionItem>
 
 
-</div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 export default HelpCard;

@@ -57,8 +57,11 @@ class HelpCardMain extends React.Component {
                         {`This request is: ${LabelConversion.getStatus(this.props.selectedGrocery.status)}`}
                         </p>
                         <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-                        { this.props.selectedGrocery.status  === 'N' &&
+                        { this.props.selectedGrocery.status  === 'N' && this.props.selectedGrocery.requestor !== this.props.userId &&
                         <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn">I will help</a>
+                        }
+                        {this.props.selectedGrocery.status === 'P' && this.props.selectedGrocery.helper === this.props.userId &&
+                            <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn disabled">I promised to help</a>
                         }
 
                     </li>

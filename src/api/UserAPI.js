@@ -20,6 +20,10 @@ class UserAPI {
     static index = () => {
       return axios.get(`${endpoint}/users`)
     }
+
+    static update = (user) => {
+      return axios.put(`${endpoint}/users`, user);
+    };
 }
 
 
