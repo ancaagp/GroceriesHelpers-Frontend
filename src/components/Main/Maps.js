@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Card, Icon, Button } from 'react-materialize';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import LabelConversion from '../Common/LabelConversion';
+import Moment from 'moment';
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -62,12 +63,12 @@ class MapContainer extends React.Component {
     const icon2 = "https://img.icons8.com/color/30/000000/fruit-bag.png"
     const icon3 = "https://img.icons8.com/color/48/000000/grocery-bag.png"
 
-    if (grocery.status === 'N') {
+    if (grocery.status === '1') {
       return icon3;
-    } else if (grocery.status === 'P') {
-      return icon;
-    } else {
+    } else if (grocery.status === '2') {
       return icon2;
+    } else {
+      return icon;
     }
 
   }
@@ -107,15 +108,16 @@ class MapContainer extends React.Component {
             <div className="card white darken-1 z-depth-0">
               <div className="card white darken-1 z-depth-0 card-content">
                 <h6>{this.state.selectedGrocery.groceries}</h6>
-                <p>{`I need this: ${LabelConversion.getTimeline(this.state.selectedGrocery.timeline)}`}</p>
+                <p>{`I need these groceries: ${LabelConversion.getTimeline(this.state.selectedGrocery.timeline)}`}</p>
                 <p>{`Status: ${LabelConversion.getStatus(this.state.selectedGrocery.status)}`}</p>
+                <br />
+                <p>Created on: {Moment(this.state.selectedGrocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
               </div>
+              { !this.props.userId &&
               <div className="card-action">
-                { !this.props.userId &&
                 <a href="/login">Please login to help this person</a>
-                }
-
               </div>
+  }
             </div>
           </div>
 

@@ -11,11 +11,11 @@ class LabelConversion {
     }
 
     static getStatus = (status) => {
-        if (status === 'N') {
+        if (status === '1') {
             return 'New'
-        } else if (status === 'P') {
+        } else if (status === '2') {
             return 'In progress'
-        } else if (status === 'C') {
+        } else if (status === '3') {
             return 'Completed'
         }
     }

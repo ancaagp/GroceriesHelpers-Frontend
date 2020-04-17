@@ -56,19 +56,27 @@ class ProfileContainer extends React.Component {
             });
     }
 
-    componentDidUpdate() {
-        console.log(this.state.myGroceries, this.state.myGroceriesHelper)
+
+    handleDelete = (grocery) => {
+        GroceriesAPI.delete(grocery)
+        .then(res => {
+            let myGroceries = this.state.myGroceries.filter(grocery => {
+                return grocery._id !== res.id;
+            })
+            this.setState({
+                myGroceries
+            })
+        })
     }
+
 
     handleEdit = (user) => {
         UserAPI.update(user)
             .then(res => {
-                console.log(res);
                 this.setState({
                     user: res.data
                 })
             })
-        console.log(this.state.user)
     }
 
 
@@ -189,6 +197,7 @@ class ProfileContainer extends React.Component {
                                 myGroceries={this.state.myGroceries}
                                 myGroceriesHelper={this.state.myGroceriesHelper}
                                 onCompleteSelected={this.onCompleteSelected}
+                                handleDelete={this.handleDelete}
                             />
                         </div>
                     </div>

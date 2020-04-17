@@ -2,7 +2,8 @@ import React from 'react';
 import { Row, Col, CollectionItem, Collection, Icon, Card, CardTitle, Button } from 'react-materialize';
 import image from '../../Main/images/papaya.png';
 import LabelConversion from '../../Common/LabelConversion';
-import UserAPI from '../../../api/UserAPI'
+import UserAPI from '../../../api/UserAPI';
+import Moment from 'moment';
 
 class HelpCardHelper extends React.Component {
 
@@ -34,7 +35,6 @@ class HelpCardHelper extends React.Component {
 }
 
     render() {
-      console.log(this.state.requestor)
       return (
 
         <div>
@@ -58,6 +58,7 @@ class HelpCardHelper extends React.Component {
                   <br />
                  Timeline: {LabelConversion.getTimeline(this.props.grocery.timeline)}
                 </p>
+                <p>Created on: {Moment(this.props.grocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
                 <h6>Person in need:</h6>
                 <p>{this.state.requestor.firstName} {this.state.requestor.lastName}</p>
                 <p>{this.state.requestor.address}</p>

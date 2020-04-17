@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, CollectionItem, Collection, Icon, CardTitle, Card, Button } from 'react-materialize';
 import LabelConversion from '../../Common/LabelConversion';
+import Moment from 'moment';
 import image from '../../Main/images/papaya.png';
 
 class HelpCard extends React.Component {
@@ -32,6 +33,7 @@ class HelpCard extends React.Component {
               <br />
           Timeline: {LabelConversion.getTimeline(this.props.grocery.timeline)}
             </p>
+            <p>Created on: {Moment(this.props.grocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
           </div>
 
           {/* <a 
@@ -39,7 +41,7 @@ class HelpCard extends React.Component {
           
         > Mark as completed<i className="material-icons" onClick={this.props.onCompleteSelected(this.props.grocery)}>check</i></a> */}
 
-        {this.props.grocery.status !== 'C' &&
+        {this.props.grocery.status !== '3' &&
               <Button
               node="button"
               className="completedBtn"
@@ -53,6 +55,17 @@ class HelpCard extends React.Component {
               </Button>
 
         }
+          <Button
+            node="button"
+            className="deleteBtn"
+            style={{
+              marginRight: '5px'
+            }}
+            waves="light"
+            onClick={() => this.props.handleDelete(this.props.grocery._id)}
+          >
+            Delete request
+              </Button>
          
         </CollectionItem>
 

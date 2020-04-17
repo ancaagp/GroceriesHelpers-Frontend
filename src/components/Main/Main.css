@@ -2,3 +2,8 @@
     margin-top: 70vh;
     position: relative
 } */
+
+.card.card-content {
+    padding: 0;
+    background-color: goldenrod;
+}

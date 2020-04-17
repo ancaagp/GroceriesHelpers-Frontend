@@ -66,7 +66,6 @@ class Profile extends React.Component {
     this.setState({
       isEditing: !this.state.isEditing,
     });
-    console.log(userUpdate)
   };
 
 

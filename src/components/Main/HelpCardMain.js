@@ -3,6 +3,7 @@ import './Main.css';
 import UserAPI from '../../api/UserAPI';
 import icon from './images/account (1).png';
 import LabelConversion from '../Common/LabelConversion';
+import Moment from 'moment';
 
 class HelpCardMain extends React.Component {
     state = {
@@ -56,11 +57,12 @@ class HelpCardMain extends React.Component {
                         <br />
                         {`This request is: ${LabelConversion.getStatus(this.props.selectedGrocery.status)}`}
                         </p>
+                        <p>Created on: {Moment(this.props.selectedGrocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
                         <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-                        { this.props.selectedGrocery.status  === 'N' && this.props.selectedGrocery.requestor !== this.props.userId &&
+                        { this.props.selectedGrocery.status  === "1" && this.props.selectedGrocery.requestor !== this.props.userId &&
                         <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn">I will help</a>
                         }
-                        {this.props.selectedGrocery.status === 'P' && this.props.selectedGrocery.helper === this.props.userId &&
+                        {this.props.selectedGrocery.status === "2" && this.props.selectedGrocery.helper === this.props.userId &&
                             <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn disabled">I promised to help</a>
                         }
 

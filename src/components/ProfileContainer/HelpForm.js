@@ -26,7 +26,6 @@ class HelpForm extends React.Component {
             lat: this.state.lat,
             lng: this.state.lng,
         }
-        console.log(newRequest)
         this.props.saveRequest(newRequest);
     }
 
@@ -63,7 +62,7 @@ class HelpForm extends React.Component {
                     <div className="row">
                         <div className="groceriesList input-field col s12">
                             <textarea className="materialize-textarea"
-                                name="groceries" onChange={this.handleChange} >
+                                name="groceries" onChange={this.handleChange} value={this.state.groceries} >      
                             </textarea>
                         </div>
                     </div>
@@ -89,7 +88,7 @@ class HelpForm extends React.Component {
 
                     <label>Additional comments:
                             <input name="description" 
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange} value={this.state.description}/>
                     </label>
 
                 </form>
