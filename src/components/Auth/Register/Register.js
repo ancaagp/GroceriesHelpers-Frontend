@@ -41,7 +41,6 @@ class Register extends React.Component {
       phoneNumber: this.state.phoneNumber,
     }
     this.props.register(newUser);
-    console.log(newUser);
   }
 
   render() {
