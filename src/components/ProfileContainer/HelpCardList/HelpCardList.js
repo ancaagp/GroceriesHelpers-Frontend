@@ -47,6 +47,7 @@ class HelpCardList extends React.Component {
                     key={grocery._id}
                     onCompleteSelected={this.props.onCompleteSelected}
                     handleDelete={this.props.handleDelete}
+                    onDeleteSelected={this.props.onDeleteSelected}
                   />
                 )
               })

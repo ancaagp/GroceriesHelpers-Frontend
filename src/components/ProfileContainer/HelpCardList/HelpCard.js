@@ -10,6 +10,10 @@ class HelpCard extends React.Component {
     this.props.onCompleteSelected(this.props.grocery);
   }
 
+  onDeleteClick = () => {
+    this.props.onDeleteSelected(this.props.grocery);
+  }
+
   render() {
     return (
       <div>
@@ -62,7 +66,7 @@ class HelpCard extends React.Component {
               marginRight: '5px'
             }}
             waves="light"
-            onClick={() => this.props.handleDelete(this.props.grocery._id)}
+            onClick={this.onDeleteClick}
           >
             Delete request
               </Button>

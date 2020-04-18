@@ -3,6 +3,7 @@ import { Row, Col, Card, Icon, Button } from 'react-materialize';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import LabelConversion from '../Common/LabelConversion';
 import Moment from 'moment';
+import App from '../App/App';
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -19,12 +20,14 @@ class MapContainer extends React.Component {
     selectedGrocery: {},
     userCenterLat: null,
     userCenterLng: null,
+    googleLib : null
   };
 
   componentDidMount() {
     this.setState({
       userCenterLat: this.props.location.lat,
-      userCenterLng: this.props.location.lng
+      userCenterLng: this.props.location.lng,
+      googleLib: window.google
     });
 
     if (navigator.geolocation) {
@@ -36,6 +39,13 @@ class MapContainer extends React.Component {
         });
       });
     }
+
+    if (!this.state.googleLib) {
+      App.initializeGoogleLib(() => {
+        this.setState({googleLib: window.google});
+      });
+    }
+
   }
 
   onMarkerClick = (props, marker, e) => {
@@ -79,7 +89,7 @@ class MapContainer extends React.Component {
     let groceries = this.props.groceries;
     return (
       <Map 
-        google={this.props.google} 
+        google={this.state.googleLib} 
         style={style} 
         zoom={14}
         center={{ lat: this.state.userCenterLat, lng: this.state.userCenterLng }}
@@ -128,6 +138,4 @@ class MapContainer extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: (googleApiKey)
-})(MapContainer)
+export default MapContainer;

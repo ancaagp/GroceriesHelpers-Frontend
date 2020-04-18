@@ -32,7 +32,9 @@ class ProfileContainer extends React.Component {
         myGroceries: [],
         myGroceriesHelper: [],
         isCompletedModal: false,
-        groceryToComplete: null
+        isDeleteModal: false,
+        groceryToComplete: null,
+        groceryToDelete: null
     }
 
     submitButtonDelegate = {}
@@ -57,17 +59,17 @@ class ProfileContainer extends React.Component {
     }
 
 
-    handleDelete = (grocery) => {
-        GroceriesAPI.delete(grocery)
-        .then(res => {
-            let myGroceries = this.state.myGroceries.filter(grocery => {
-                return grocery._id !== res.id;
-            })
-            this.setState({
-                myGroceries
-            })
-        })
-    }
+    // handleDelete = (grocery) => {
+    //     GroceriesAPI.delete(grocery)
+    //     .then(res => {
+    //         let myGroceries = this.state.myGroceries.filter(grocery => {
+    //             return grocery._id !== res.data._id;
+    //         })
+    //         this.setState({
+    //             myGroceries
+    //         })
+    //     })
+    // }
 
 
     handleEdit = (user) => {
@@ -100,6 +102,33 @@ class ProfileContainer extends React.Component {
 
     onCompleteCanceled = () => {
         this.setState({ groceryToComplete: null, isCompletedModal: false });
+    }
+    
+    onCompleteSelected = (groceryToComplete) => {
+        this.setState({
+            isCompletedModal: true,
+            groceryToComplete: groceryToComplete
+        });
+    }
+
+    onDeleteSelected = (groceryToDelete) => {
+        this.setState({
+            isDeleteModal: true,
+            groceryToDelete: groceryToDelete
+        });
+    }
+
+    onDeleteConfirmed = () => {
+        GroceriesAPI.delete(this.state.groceryToDelete)
+            .then((res) => {
+                let deletedGrocery = res.data;
+                let groceries = this.state.myGroceries.filter(gro => gro._id !== deletedGrocery._id);
+                this.setState({ myGroceries: groceries, groceryToDelete: null, isDeleteModal: false });
+            });
+    }
+
+    onDeleteCanceled = () => {
+        this.setState({ groceryToDelete: null, isDeleteModal: false });
     }
 
 
@@ -198,6 +227,7 @@ class ProfileContainer extends React.Component {
                                 myGroceriesHelper={this.state.myGroceriesHelper}
                                 onCompleteSelected={this.onCompleteSelected}
                                 handleDelete={this.handleDelete}
+                                onDeleteSelected={this.onDeleteSelected}
                             />
                         </div>
                     </div>
@@ -222,6 +252,28 @@ class ProfileContainer extends React.Component {
                         </Modal>
                     </ModalWrapper>
                 }
+
+{this.state.isDeleteModal &&
+
+                    <ModalWrapper>
+                        <Modal
+                            actions={[
+                                <Button flat modal="close" node="button" onClick={this.onDeleteCanceled} waves="green">Cancel</Button>,
+                                <Button flat modal="close" node="button" onClick={this.onDeleteConfirmed} waves="green">Delete</Button>
+                            ]}
+                            bottomSheet={false}
+                            fixedFooter={false}
+                            header="Are you sure?"
+                            open={true}
+                            options={{ dismissible: false }}
+                            root={document.getElementById('root')}
+                        >
+                            Are you sure you want to delete this request? {this.state.groceryToDelete.groceries}
+
+                        </Modal>
+                    </ModalWrapper>
+                    }
+
 
             </>
         )

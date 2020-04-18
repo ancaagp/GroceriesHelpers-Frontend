@@ -8,12 +8,31 @@ import FooterBar from '../Footer/Footer';
 // import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 
+const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+
 class App extends React.Component {
   state = {
     user: '',
     id: '',
     lat: '',
     lng: ''
+  }
+
+  static initializeGoogleLib(callbackGoogleLib) {
+    if (window.google) {
+      callbackGoogleLib();
+    } else {
+      // initializing google Lib
+      const script = document.createElement("script");
+      // assigns the address of the google autocomplete api 
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&libraries=places`;
+      // tells the browser that it can load the script asynchronously
+      script.async = false;
+      // when the script has been loaded, call the function initializeAutocomplete
+      script.onload = () => callbackGoogleLib();
+      // adds the script tag to the html
+      document.body.appendChild(script);
+    }
   }
 
   componentDidMount() {
