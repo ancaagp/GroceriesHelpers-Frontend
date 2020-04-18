@@ -1,8 +1,6 @@
 import axios from 'axios';
 const endpoint = `${process.env.REACT_APP_API_URL}/groceries`;
 
-
-
 class GroceriesAPI {
   static index = () => {
     return axios.get(endpoint);
