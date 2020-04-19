@@ -24,12 +24,12 @@ const Header = (props) => {
             preventScrolling: true
         }}
         >
-          <NavItem href="/about">
-          About  
+          <NavItem href="/">
+          Home  
           </NavItem>
         { props.user && 
-        <NavItem href="/">
-            Home
+        <NavItem href="/offerhelp">
+            Offer help
         </NavItem>
         }
         { props.user && 

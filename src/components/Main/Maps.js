@@ -88,10 +88,13 @@ class MapContainer extends React.Component {
 
     let groceries = this.props.groceries;
     return (
+      <div>
+
       <Map 
         google={this.state.googleLib} 
         style={style} 
         zoom={14}
+        className="maps"
         center={{ lat: this.state.userCenterLat, lng: this.state.userCenterLng }}
       >
 
@@ -134,6 +137,7 @@ class MapContainer extends React.Component {
 
         </InfoWindow>
       </Map>
+      </div>
     );
   }
 }

@@ -8,6 +8,8 @@ import HelpCardList from './HelpCardList/HelpCardList';
 import UserAPI from '../../api/UserAPI';
 import icon from '../Main/images//account (1).png';
 import image from '../Main/images//papaya1.png';
+import FooterBar from '../Footer/Footer';
+import '../Footer/Footer.css'
 
 // This wrapper prevents the Modal from re-rendering
 // Modal component from react-materialize stops working if its re-rendered (setState)
@@ -274,7 +276,7 @@ class ProfileContainer extends React.Component {
                     </ModalWrapper>
                     }
 
-
+<FooterBar />
             </>
         )
     }

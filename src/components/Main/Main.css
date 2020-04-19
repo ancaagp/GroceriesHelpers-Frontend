@@ -1,9 +1,61 @@
-/* .help-card-main {
-    margin-top: 70vh;
-    position: relative
+
+/* .main {
+    display: flex;
+    flex-direction: column;
 } */
+
+.maps1 {
+    z-index: 5;
+    /* order: 1; */
+    position: unset !important;
+    /* margin-top: 5vh; */
+    width: 50%;
+    /* height: 100%; */
+}
+
+.help-card-main.container {
+    height: 60px;
+    z-index: 9;
+    margin-bottom: 20px;
+    margin-top: 65vh;
+    position: relative;
+}
+
 
 .card.card-content {
     padding: 0;
     background-color: goldenrod;
+}
+
+
+.card.home {
+    background-color:#F4D177;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+}
+
+.card-content.white-text {
+    padding-bottom: 24px !important;
+    color: #393e46 !important;
+}
+
+.linkHome {
+    color: #C9301D !important;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+}
+
+.intro {
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+.container-map {
+    margin-bottom: 20px;;
 }

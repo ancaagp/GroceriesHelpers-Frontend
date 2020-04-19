@@ -1,3 +1,8 @@
 .nav-wrapper {
     background-color: #213037;
+    font-size: 30px;
+}
+
+.sidenav.right {
+    font-size: 20px;;
 }

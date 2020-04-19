@@ -1,5 +1,5 @@
 /* .page-footer {
-    flex-shrink: 0;
+
     background-color: #213037;
     z-index: 9;
     margin-top: 80%;
@@ -7,10 +7,13 @@
 } */
 
 .page-footer {
-    position:fixed;
-    height: 70px;
+    position: relative;
+    flex-shrink: 0;
+    height: 60px;
+    padding-top: 0;
     bottom:0;
     width:100%;
-    /* z-index: 9; */
+    z-index: 9;
     background-color: #213037;
+    text-align: center;
   }

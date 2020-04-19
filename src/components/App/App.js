@@ -131,7 +131,7 @@ class App extends React.Component {
           register={this.register}
         />
         </div>
-        <FooterBar />
+        {/* <FooterBar /> */}
       </div>
     )
   }

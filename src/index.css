@@ -7,12 +7,13 @@
 } */
 
 
-
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   margin-bottom: 50px;
+  font-family: 'EB Garamond', serif;
+  color: #393e46 !important;
 }
 
 .main {
@@ -20,14 +21,14 @@ body {
 }
 
 
-/* * {
+* {
   margin: 0;
 }
 
 html, body {
   height: 100%;
 }
-
+/* 
 .main, body {
   height: 100%;
   background-color: hotpink;
@@ -42,7 +43,7 @@ html, body {
 .help-card-main.container {
   color: grey;
   height: 50px;
-} */
+}  */
 
 
 /* .app {
