@@ -6,7 +6,6 @@ import GroceriesAPI from '../../api/GroceriesAPI';
 import Profile from './Profile';
 import HelpCardList from './HelpCardList/HelpCardList';
 import UserAPI from '../../api/UserAPI';
-import icon from '../Main/images//account (1).png';
 import image from '../Main/images//papaya1.png';
 import FooterBar from '../Footer/Footer';
 import '../Footer/Footer.css'
@@ -61,19 +60,6 @@ class ProfileContainer extends React.Component {
     }
 
 
-    // handleDelete = (grocery) => {
-    //     GroceriesAPI.delete(grocery)
-    //     .then(res => {
-    //         let myGroceries = this.state.myGroceries.filter(grocery => {
-    //             return grocery._id !== res.data._id;
-    //         })
-    //         this.setState({
-    //             myGroceries
-    //         })
-    //     })
-    // }
-
-
     handleEdit = (user) => {
         UserAPI.update(user)
             .then(res => {
@@ -105,7 +91,7 @@ class ProfileContainer extends React.Component {
     onCompleteCanceled = () => {
         this.setState({ groceryToComplete: null, isCompletedModal: false });
     }
-    
+
     onCompleteSelected = (groceryToComplete) => {
         this.setState({
             isCompletedModal: true,
@@ -162,13 +148,13 @@ class ProfileContainer extends React.Component {
                 {/* User profile background */}
                 <div className="row">
                     <div className="col s12">
-                        <div id="helpFormRoot" className="container">
-                            <div id="profile-page-header" className="card">
-                                <div className="card-image waves-effect waves-block waves-light">
-                                    <img className="activator" src={image} alt="user background" />
+                        <div id="helpFormRoot" className="container flat">
+                            {/* <div id="profile-page-header" className="card">
+                                <div className="card-image">
+                                    <img className="activator" src={image} alt="user background" /> */}
                                     <h3>Welcome, {this.state.user.firstName}</h3>
-                                </div>
-                            </div>
+                                {/* </div>
+                            </div> */}
                         </div>
 
                     </div>
@@ -206,7 +192,7 @@ class ProfileContainer extends React.Component {
                                     open={false}
                                     options={{ dismissible: false }}
                                     root={document.getElementById('root')}
-                                    trigger={<Button className="addRequestBtn" node="button">Add new request</Button>}
+                                    trigger={<Button className="addRequestBtn btn-flat" node="button">Add new request</Button>}
                                 >
                                     <HelpForm submitButtonDelegate={this.submitButtonDelegate} saveRequest={this.saveRequest} />
                                 </Modal>
@@ -255,7 +241,7 @@ class ProfileContainer extends React.Component {
                     </ModalWrapper>
                 }
 
-{this.state.isDeleteModal &&
+                {this.state.isDeleteModal &&
 
                     <ModalWrapper>
                         <Modal
@@ -274,9 +260,9 @@ class ProfileContainer extends React.Component {
 
                         </Modal>
                     </ModalWrapper>
-                    }
+                }
 
-<FooterBar />
+                <FooterBar />
             </>
         )
     }

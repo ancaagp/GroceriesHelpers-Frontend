@@ -3,8 +3,6 @@ import Maps from './Maps';
 import GroceriesAPI from '../../api/GroceriesAPI';
 import HelpCardMain from './HelpCardMain';
 import { Modal, Button } from 'react-materialize';
-import FooterBar from '../Footer/Footer';
-import '../Footer/FooterMap.css';
 
 class HomepageContainer extends React.Component {
     state = {
@@ -63,10 +61,10 @@ class HomepageContainer extends React.Component {
 
 
     render() {
+
         return (
             <>
-                                <h2>Help your close ones</h2>
-
+                <h2>Help your close ones</h2>
 
                 <div className="section white">
                     <div className="row container">
@@ -109,10 +107,10 @@ class HomepageContainer extends React.Component {
                             </div>
 
                         </div>
-   
-         
-          </div>
-        </div>
+
+
+                    </div>
+                </div>
 
 
                 <div className="maps1">
@@ -136,17 +134,17 @@ class HomepageContainer extends React.Component {
                 {this.state.isHelpModal &&
                     <Modal
                         actions={[
-                            <Button flat modal="close" node="button" onClick={this.onCancelHelp} waves="green">Cancel</Button>,
-                            <Button flat modal="close" node="button" onClick={this.onConfirmHelp} waves="green">I want to Help!</Button>
+                            <Button flat modal="close" node="button" onClick={this.onCancelHelp} waves="green">Maybe next time</Button>,
+                            <Button flat modal="close" node="button" onClick={this.onConfirmHelp} waves="green">I will help now</Button>
                         ]}
                         bottomSheet={false}
                         fixedFooter={false}
-                        header="Are you sure?"
+                        header="Please confirm"
                         open={true}
                         options={{ dismissible: false }}
                         root={document.getElementById('root')}
                     >
-                        Are you sure you want to help: {this.state.selectedGrocery.groceries}?
+                        Please confirm you can help with the following list: {this.state.selectedGrocery.groceries}. Once you confirm, this request will be set to 'In progress' and won't be available to new helpers.
                     </Modal>
                 }
 

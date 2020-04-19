@@ -1,3 +1,7 @@
 .pac-container {
     z-index: 10000 !important;
 }
+
+::placeholder {
+    color: #393e46 !important;
+}

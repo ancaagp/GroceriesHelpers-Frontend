@@ -11,12 +11,10 @@ class HelpCardList extends React.Component {
 
 
       <>
-        <div className="col s12">This div is 12-columns wide on all screen sizes</div>
-
 
         <div className="col s12 m10">
 
-          <h3>My contribution</h3>
+          <h4>My contribution</h4>
           <Collection>
             {
               this.props.myGroceriesHelper &&
@@ -36,7 +34,7 @@ class HelpCardList extends React.Component {
 
         <div className="col s12 m10">
 
-          <h3>My requests</h3>
+          <h4>My requests</h4>
           <Collection>
             {
               this.props.myGroceries &&

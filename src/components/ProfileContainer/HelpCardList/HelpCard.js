@@ -46,9 +46,10 @@ class HelpCard extends React.Component {
         > Mark as completed<i className="material-icons" onClick={this.props.onCompleteSelected(this.props.grocery)}>check</i></a> */}
 
         {this.props.grocery.status !== '3' &&
-              <Button
+
+            <Button
               node="button"
-              className="completedBtn"
+              className="completedBtn btn-flat"
               style={{
                 marginRight: '5px'
               }}
@@ -61,7 +62,7 @@ class HelpCard extends React.Component {
         }
           <Button
             node="button"
-            className="deleteBtn"
+            className="deleteBtn btn-flat"
             style={{
               marginRight: '5px'
             }}

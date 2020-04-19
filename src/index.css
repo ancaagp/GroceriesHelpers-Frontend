@@ -6,13 +6,16 @@
   min-height: 500px
 } */
 
+html, body {
+  height: 100%;
+}
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   margin-bottom: 50px;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Comfortaa', serif;
   color: #393e46 !important;
 }
 
@@ -25,9 +28,7 @@ body {
   margin: 0;
 }
 
-html, body {
-  height: 100%;
-}
+
 /* 
 .main, body {
   height: 100%;

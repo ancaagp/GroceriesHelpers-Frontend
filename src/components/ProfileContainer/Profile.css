@@ -3,8 +3,13 @@
 }
 
 .addRequestBtn {
-    /* float: right; */
-    margin-top: 1%;
+    margin-left: 10px;
+    background-color: #599301;
+    color: white !important;
+}
+
+.addRequestBtn:hover {
+    background-color: #AAAC31;
 }
 
 .modal.modal-fixed-footer {
@@ -16,22 +21,50 @@
 }
 
 .completedBtn {
-    background-color: goldenrod;
+    background-color: #599301;
+    color: white !important;
+    margin-top: 10px;
 }
 
-.editProfile input {
+.completedBtn:hover {
+    background-color: #AAAC31;
+}
+
+.deleteBtn {
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #C9301D;
+    color: white !important;
+}
+
+.deleteBtn:hover {
+    background-color: #F56E4A;
+}
+
+.editProfile {
     color: white;
-    text-align: center;
     font-size: larger;
+    font-family: 'Comfortaa', serif;
+    color: #393e46 !important;
+    margin-bottom: 10px;
 }
 
-.btnEdit {
-    margin: auto;
+input#addressField.pac-target-input {
+    font-family: 'Comfortaa', serif;
+    color: #393e46 !important;
 }
 
-/* .about {
-    font-size: 2vh;
-} */
+.linkEditProfile {
+    color: #C9301D !important;
+}
+
+.linkEditProfile.save {
+    margin-left: 25px;
+}
+
+.about-card {
+    background-color: white;
+}
 
 .divider {
     width:5px;
@@ -41,4 +74,19 @@
 
 .card-content.white-text {
     padding: 24px 24px 0 24px;
+}
+
+#helpFormRoot {
+    text-align: center;
+}
+
+
+.about li > *{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+li {
+    margin: 5px;
 }
