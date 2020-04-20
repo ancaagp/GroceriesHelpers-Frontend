@@ -8,8 +8,8 @@ class HelpForm extends React.Component {
         timeline: '',
         description: '',
         address: '',
-        lat: '',
-        lng: '',
+        lat: null,
+        lng: null,
     }
 
     componentDidMount() {
@@ -18,15 +18,17 @@ class HelpForm extends React.Component {
     }
 
     onSubmitHelpForm = (event) => {
-        let newRequest = {
-            groceries: this.state.groceries,
-            timeline: this.state.timeline,
-            description: this.state.description,
-            address: this.state.address,
-            lat: this.state.lat,
-            lng: this.state.lng,
+        if (this.state.lat && this.state.lng) {
+            let newRequest = {
+                groceries: this.state.groceries,
+                timeline: this.state.timeline,
+                description: this.state.description,
+                address: this.state.address,
+                lat: this.state.lat,
+                lng: this.state.lng,
+            }
+            this.props.saveRequest(newRequest);
         }
-        this.props.saveRequest(newRequest);
     }
 
     clearForm = () => {
@@ -35,8 +37,8 @@ class HelpForm extends React.Component {
             timeline: '',
             description: '',
             address: '',
-            lat: '',
-            lng: '',
+            lat: null,
+            lng: null,
         });
     }
 
@@ -61,15 +63,15 @@ class HelpForm extends React.Component {
                     <label>Tell us what groceries you need (max 10 items):</label>
                     <div className="row">
                         <div className="groceriesList input-field col s12">
-                            <textarea className="materialize-textarea"
-                                name="groceries" onChange={this.handleChange} value={this.state.groceries} >      
+                            <textarea className="materialize-textarea validate"
+                                name="groceries" onChange={this.handleChange} value={this.state.groceries} required>      
                             </textarea>
                         </div>
                     </div>
 
                     <label>By when do you need them?
 
-                        <select name="timeline" className="browser-default" 
+                        <select name="timeline" className="browser-default validate" 
                             defaultValue={''} 
                             onChange={this.handleChange}>
                             <option value="" disabled="disabled">--Please choose an option--</option>

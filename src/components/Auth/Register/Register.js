@@ -128,7 +128,13 @@ class Register extends React.Component {
         <label className="required">*required</label>
         </p>
         <br />
+        { this.state.firstName && this.state.address && this.state.email && this.state.password && this.state.password2 &&
           <a onClick={this.handleSubmit} className="btn-flat loginBtn" type="submit">Submit</a>
+        }
+        {!this.state.firstName && !this.state.address && !this.state.email && !this.state.password && !this.state.password2 &&
+          <a onClick={this.handleSubmit} className="btn-flat loginBtn disabled" type="submit">Submit</a>
+        }
+
         </form>
       </div>
     )
