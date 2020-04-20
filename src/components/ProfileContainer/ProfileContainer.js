@@ -6,7 +6,6 @@ import GroceriesAPI from '../../api/GroceriesAPI';
 import Profile from './Profile';
 import HelpCardList from './HelpCardList/HelpCardList';
 import UserAPI from '../../api/UserAPI';
-import image from '../Main/images//papaya1.png';
 import FooterBar from '../Footer/Footer';
 import '../Footer/Footer.css'
 
@@ -145,16 +144,10 @@ class ProfileContainer extends React.Component {
 
         return (
             <>
-                {/* User profile background */}
                 <div className="row">
                     <div className="col s12">
                         <div id="helpFormRoot" className="container flat">
-                            {/* <div id="profile-page-header" className="card">
-                                <div className="card-image">
-                                    <img className="activator" src={image} alt="user background" /> */}
                                     <h3>Welcome, {this.state.user.firstName}</h3>
-                                {/* </div>
-                            </div> */}
                         </div>
 
                     </div>
@@ -163,7 +156,7 @@ class ProfileContainer extends React.Component {
                 <div className="row">
                     <div className="col s12">
                         <div className="container">
-                            {/* User requests */}
+
                             <Profile
                                 user={this.state.user}
                                 handleEdit={this.handleEdit}
@@ -230,12 +223,12 @@ class ProfileContainer extends React.Component {
                             ]}
                             bottomSheet={false}
                             fixedFooter={false}
-                            header="Are you sure?"
+                            header="Please confirm"
                             open={true}
                             options={{ dismissible: false }}
                             root={document.getElementById('root')}
                         >
-                            Are you sure you want to complete: {this.state.groceryToComplete.groceries}
+                            Are you sure you want to complete this request: {this.state.groceryToComplete.groceries}? Once completed, it won't be visible to any helpers anymore.
 
                         </Modal>
                     </ModalWrapper>
@@ -251,12 +244,12 @@ class ProfileContainer extends React.Component {
                             ]}
                             bottomSheet={false}
                             fixedFooter={false}
-                            header="Are you sure?"
+                            header="Please confirm"
                             open={true}
                             options={{ dismissible: false }}
                             root={document.getElementById('root')}
                         >
-                            Are you sure you want to delete this request? {this.state.groceryToDelete.groceries}
+                            Are you sure you want to delete this request: {this.state.groceryToDelete.groceries}? Once deleted, it will dissapear from your items list.
 
                         </Modal>
                     </ModalWrapper>

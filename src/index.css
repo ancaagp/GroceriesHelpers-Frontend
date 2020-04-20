@@ -28,6 +28,27 @@ body {
   margin: 0;
 }
 
+/* input:valid {
+  border-bottom: 2px #393e46;
+} */
+
+input:invalid {
+  border-bottom: 1px red;
+}
+
+
+input:invalid:required {
+  background-color: whitesmoke;
+}
+
+.required {
+  float: right;
+}
+
+/* input:invalid:required {
+  border-bottom: 2px red;
+} */
+
 
 /* 
 .main, body {

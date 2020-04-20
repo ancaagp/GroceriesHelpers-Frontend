@@ -78,7 +78,7 @@ class Profile extends React.Component {
           {/* is editing */}
           {this.state.isEditing && (
             <>
-              <div className="card-content white-text">
+              <div className="card-content white-text about">
                 <form className="editProfile">
                   <label>
                     First name:
@@ -144,7 +144,7 @@ class Profile extends React.Component {
           {/* is editing */}
           {!this.state.isEditing && (
             <>
-              <div className="card-content white-text">
+              <div className="card-content white-text about">
                 <span className="card-title"> About me</span>
                 <ul className="about">
                   <li>

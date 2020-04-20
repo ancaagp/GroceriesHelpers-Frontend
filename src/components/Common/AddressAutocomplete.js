@@ -54,7 +54,7 @@ class AddressAutocomplete extends React.Component {
     render () {
         return (
             <div>
-                <input id="addressField" value={this.props.address} />
+                <input id="addressField" value={this.props.address} required             className="validate"/>
             </div>
         );
     }

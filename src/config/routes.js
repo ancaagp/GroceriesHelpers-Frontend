@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Register from '../components/Auth/Register/Register';
 import Login from '../components/Auth/Login/Login';
+import LoginRegister from '../components/Auth/LoginRegister';
 import HomepageContainer from '../components/Main/HomepageContainer';
 import ProfileContainer from '../components/ProfileContainer/ProfileContainer';
-import About from '../components/Main/Home';
 import Home from '../components/Main/Home';
 
 
@@ -26,20 +26,6 @@ const Routes = (props) => {
                 component={Home}
             />
 
-{/* 
-            <Route
-                exact path='/'
-                render={ () =>
-                    <HomepageContainer
-                        userId={props.userId}
-                        location={props.location}
-                    />
-                }
-            />
-            <Route
-                exact path='/about'
-                component={About}
-            /> */}
             <Route
                 path='/profile'
                 render={
@@ -48,10 +34,11 @@ const Routes = (props) => {
                             userId={props.userId}
                         />
                         :
-                        <Login login={props.login} />
+                        <LoginRegister login={props.login} />
                 }
             />
-            <Route
+
+            {/* <Route
                 path='/register'
                 render={
                     () => props.user ?
@@ -64,11 +51,24 @@ const Routes = (props) => {
                 path='/login'
                 render={
                     () => props.user ?
-                        <Redirect to="/" />
+                        <Redirect to="/offerhelp" />
                         :
                         <Login login={props.login} />
                 }
+            /> */}
+
+            <Route
+                path='/loginregister'
+                render={
+                    () => props.user ?
+                        <Redirect to="/offerhelp" />
+                        :
+                        <LoginRegister 
+                            register={props.register}
+                            login={props.login} />
+                }
             />
+
         </Switch>
     )
 }

@@ -47,7 +47,7 @@ class HelpCardMain extends React.Component {
             <div className="help-card-main container">
 
                 <div className="col s12 m7">
-                    <h2 className="header">Selected groceries list</h2>
+                    <h4 className="header selected-groceries">Selected groceries list</h4>
                     <div className="card horizontal">
                         {!isMobile &&
                             <div className="card-image">
@@ -87,6 +87,9 @@ class HelpCardMain extends React.Component {
                                 }
                                 {this.props.selectedGrocery.status === "2" && this.props.selectedGrocery.helper === this.props.userId &&
                                     <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn disabled">I promised to help</a>
+                                }
+                                {this.props.selectedGrocery.status === "2" && this.props.selectedGrocery.helper !== this.props.userId &&
+                                    <a onClick={this.props.onHelpSelected} className="waves-effect waves-light btn disabled">Someone is already helping</a>
                                 }
                             </div>
                         </div>

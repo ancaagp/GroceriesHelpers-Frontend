@@ -41,15 +41,18 @@ const Header = (props) => {
         <NavItem href="#" onClick={props.logout} >
             Logout
         </NavItem> 
-        }
-
-        { !props.user &&
-          <NavItem href="/register">
-          Sign up
+        }{ !props.user &&
+          <NavItem href="/offerhelp">
+          Offer help
       </NavItem>
         }
+        {/* { !props.user &&
+          <NavItem href="/loginregister">
+          Login
+      </NavItem>
+        } */}
         { !props.user &&
-      <NavItem href="/login">
+      <NavItem href="/loginregister">
           Login
       </NavItem>
        }

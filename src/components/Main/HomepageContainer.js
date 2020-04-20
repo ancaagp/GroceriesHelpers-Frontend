@@ -64,47 +64,45 @@ class HomepageContainer extends React.Component {
 
         return (
             <>
-                <h2>Help your close ones</h2>
+                <h3>Help your community</h3>
 
-                <div className="section white">
-                    <div className="row container">
-                        <div className="row">
+                <div className="section white howTo">
+                    <div className="row container howToContainer">
+
                             <div className="col s12 m4">
-                                <div className="card home">
-                                    <div className="card-content white-text">
-                                        <span className="card-title">Card Title</span>
-                                        <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+                                <div className="home z-depth-0.1">
+                                    <div className="card-content white-text howTo">
+                                        <span className="card-title">1.</span>
+                                        <p>
+                                           Browse cards on the map and find the one you can help with based on number of items or location.
+                                        </p>
                                     </div>
-                                    <div className="card-action">
-                                        <a className="linkHome" href="#">This is a link</a>
+                                </div>
+                            </div>
+
+
+                            <div className="col s12 m4">
+                                <div className="home z-depth-0.1">
+                                    <div className="card-content white-text howTo">
+                                        <span className="card-title">2.</span>
+                                        <p>
+                                            Contact the person who needs help with grocery shopping via email or phone number found on the card.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="col s12 m4">
-                                <div className="card home">
-                                    <div className="card-content white-text">
-                                        <span className="card-title">Offer help</span>
-                                        <p>You can search on the map for open requests and their groceries list. If you can help someone, choose their list and ycontact them directly via email or phone number. </p>
-                                    </div>
-                                    <div className="card-action">
-                                        <a className="linkHome" href="/offerhelp">Offer help</a>
-                                    </div>
+                                <div className="home z-depth-0.1">
+                                    <div className="card-content white-text howTo">
+                                        <span className="card-title">3.</span>
+                                        <p>
+                                            Once you commit to helping, select 'I will help' on the card. This will make the card unavailable to other helpers.
+                                        </p>
                                 </div>
                             </div>
 
-                            <div className="col s12 m4">
-                                <div className="card home">
-                                    <div className="card-content white-text">
-                                        <span className="card-title">Find help</span>
-                                        <p>You can create new requests for grocery shopping on your Profile page. The requests will be automatically shown on the map, based on the location provided. </p>
-                                    </div>
-                                    <div className="card-action">
-                                        <a className="linkHome" href="/profile">Find help</a>
-                                    </div>
-                                </div>
-                            </div>
+
 
                         </div>
 

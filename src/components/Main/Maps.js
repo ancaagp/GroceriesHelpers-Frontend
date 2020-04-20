@@ -117,7 +117,7 @@ class MapContainer extends React.Component {
           
           {/* Card modal on marker */}
 
-          <div>
+          <div className="cardMap">
             <div className="card white darken-1 z-depth-0">
               <div className="card white darken-1 z-depth-0 card-content">
                 <h6>{this.state.selectedGrocery.groceries}</h6>
@@ -128,7 +128,7 @@ class MapContainer extends React.Component {
               </div>
               { !this.props.userId &&
               <div className="card-action">
-                <a href="/login">Please login to help this person</a>
+                <a className="linkHome" href="/loginregister">Please login to help this person</a>
               </div>
   }
             </div>

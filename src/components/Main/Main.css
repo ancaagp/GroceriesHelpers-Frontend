@@ -1,16 +1,4 @@
 
-/* .main {
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .maps1 {
-    order: 1; 
-margin-top: 5vh; 
-height: 100%;
-} */
-
-
 .maps1 {
     z-index: 5;
     position: unset !important;
@@ -32,9 +20,14 @@ height: 100%;
 }
 
 .card-content.white-text {
-    padding-bottom: 24px !important;
+    padding: 24px !important;
     color: #393e46 !important;
 }
+
+.card-content.white-text.howTo {
+    padding: 10px !important;
+}
+
 
 .linkHome {
     color: #C9301D !important;
@@ -44,7 +37,7 @@ height: 100%;
     color: #F56E4A;
 }
 
-h2 {
+h3, h2 {
     text-align: center;
     font-family: 'Comfortaa', serif;
 }
@@ -68,4 +61,23 @@ h2 {
 
 .helpBtn:hover {
     background-color: #AAAC31;
+  }
+
+  .howTo {
+      text-align: center;
+      padding-top: 0;
+  }
+
+  .howToContainer {
+      margin-bottom: 0;
+      color: #393e46 !important;
+  }
+
+  .selected-groceries {
+      text-align: center;
+  }
+
+  .cardMap {
+    font-family: 'Comfortaa', serif;
+    color: #393e46 !important;
   }

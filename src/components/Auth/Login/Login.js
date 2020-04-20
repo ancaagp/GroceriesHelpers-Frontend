@@ -24,26 +24,40 @@ class Login extends React.Component {
   render() {
     return(
       <div className="login">
-        <form onSubmit={this.handleSubmit}>
-          <label>Email: 
+        <form>
+          <label>Email* 
             <input
-              type="text"
+              type="email"
+              className="validate"
               name="email"
               value={this.state.email}
-              onChange={this.handleChange}>
+              onChange={this.handleChange}
+              required>
             </input>
           </label>
           <br />
-          <label>Password: 
+          <label>Password*
             <input
               type="password"
+              className="validate"
               name="password"
               value={this.state.password}
-              onChange={this.handleChange}>
+              onChange={this.handleChange}
+              required>
             </input>
           </label>
           <br />
-          <button type="submit">Submit</button>
+          <p>
+        <label className="required">*required</label>
+        </p>
+        <br />
+        {this.state.email && this.state.password &&
+          <a onClick={this.handleSubmit} className="btn-flat loginBtn" type="submit">Submit</a>
+        }
+        {!this.state.email && <input type="email"/> && !this.state.password &&
+          <a onClick={this.handleSubmit} className="btn-flat loginBtn disabled" type="submit">Submit</a>
+        }
+
         </form>
       </div>
     )

@@ -1,0 +1,19 @@
+
+
+.loginBtn {
+    background-color: #599301;
+    color: white !important;
+    margin-top: 24px;
+}
+
+.loginBtn:hover {
+    background-color: #AAAC31;
+  }
+
+.loginRegister {
+    margin-top: 24px;
+}
+
+h5 {
+    margin: 30px;
+}
