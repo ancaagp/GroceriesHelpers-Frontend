@@ -53,23 +53,21 @@ class HelpCardMain extends React.Component {
                             <div className="card-image">
                                 <img src={image} />
                             </div>
-                        } 
+                        }
 
                         <div className="card-stacked">
 
                             <div className="card-content">
                                 <p>{`This request is: ${LabelConversion.getStatus(this.props.selectedGrocery.status)}`}</p>
                                 <p>Groceries needed: {this.props.selectedGrocery.groceries}</p>
-                                <br/>
+                                <br />
                                 <p style={boldText}>Contact information:</p>
-                                <span className="title">This request was created by: {this.state.user.firstName} {this.state.user.lastName}
-                                    {this.state.user.intro &&
-                                        <p>About: {this.state.user.intro}</p>
-                                    }
+                                <p>This request was created by: {this.state.user.firstName} {this.state.user.lastName}</p>
+                                {this.state.user.intro &&
+                                    <p>About: {this.state.user.intro}</p>
+                                }
 
-                                    <br />
-                                    Phone number: {this.state.user.phoneNumber}
-                                </span>
+                                <p>Phone number: {this.state.user.phoneNumber}</p>
                                 <p>
                                     Delivery address: {this.props.selectedGrocery.address}
                                     <br />  Additional info: {this.props.selectedGrocery.description}<br />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, CollectionItem, Collection, Icon, Card, CardTitle, Button } from 'react-materialize';
-import image from '../../Main/images/papaya.png';
+import image from '../../Main/images/the-creative-exchange-ixS7UCRJTdM-unsplash.jpg';
 import image2 from '../../Main/images/micheile-henderson-3TgIneA4xjM-unsplash.jpg';
 import LabelConversion from '../../Common/LabelConversion';
 import UserAPI from '../../../api/UserAPI';
@@ -45,10 +45,10 @@ class HelpCardHelper extends React.Component {
 
       return (
 <>
-{/* <div className="help-card-main container">
+{/* <div className="container">
 {this.state.requestor &&
 
-<div className="col s12 m7">
+<div className="col s12">
     <div className="card horizontal">
         {!isMobile &&
             <div className="card-image">
@@ -92,37 +92,41 @@ class HelpCardHelper extends React.Component {
 
 {/* ORRRRRRRRRRRRRRRRRRR */}
 
-        <div>
+<div className="col s12">
+    <div className="card horizontal">
+        {!isMobile &&
+            <div className="card-image">
+                <img src={image2} />
+            </div>
+        } 
+
           {this.state.requestor &&
             <CollectionItem className="avatar">
               <div className="helpCard">
-                <img
-                  alt=""
-                  className="circle"
-                  src={image}
-                />
-                <div className="title">
-                  {LabelConversion.getStatus(this.props.grocery.status)}
-                </div>
+                <p>{`This request is: ${LabelConversion.getStatus(this.props.grocery.status)}`}</p>
+                <p>Groceries needed: {this.props.grocery.groceries}</p>
+                <br/>
+                <p style={boldText}>Contact information:</p>
+                <p>This request was created by: {this.state.requestor.firstName} {this.state.requestor.lastName}</p>
+                    {this.state.requestor.intro &&
+                        <p>About: {this.state.requestor.intro}</p>
+                    }
+                   <p> Phone number: {this.state.requestor.phoneNumber}</p>
                 <p>
-                  Shopping list: {this.props.grocery.groceries}
-                  <br />
-                Address: {this.props.grocery.address}
-                  <br />
-                 Additional information: {this.props.grocery.description}
-                  <br />
-                 Timeline: {LabelConversion.getTimeline(this.props.grocery.timeline)}
+                    Delivery address: {this.props.grocery.address}
+                    <br />  Additional info: {this.props.grocery.description}<br />
+                    {`I need this: ${LabelConversion.getTimeline(this.props.grocery.timeline)}`}
+                    <br />
+
                 </p>
                 <p>Created on: {Moment(this.props.grocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
-                <h6>Person in need:</h6>
-                <p>{this.state.requestor.firstName} {this.state.requestor.lastName}</p>
-                <p>{this.state.requestor.address}</p>
-                <p>{this.state.requestor.phoneNumber}</p>
-                <p>{this.state.requestor.email}</p>
               </div>
             </CollectionItem>
           }
         </div>
+
+        </div>
+    
         </>
       )
     }

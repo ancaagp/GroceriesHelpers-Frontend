@@ -31,10 +31,10 @@
 }
 
 .deleteBtn {
-    margin-left: 10px;
     margin-top: 10px;
     background-color: #C9301D;
     color: white !important;
+
 }
 
 .deleteBtn:hover {
@@ -80,6 +80,10 @@ input#addressField.pac-target-input {
     text-align: center;
 }
 
+.helpCard {
+    margin-bottom: 30px;
+}
+
 
 .about li > *{
   display: inline-block;
@@ -87,6 +91,10 @@ input#addressField.pac-target-input {
   margin-right: 20px;
 }
 
-li {
+.about li {
     margin: 5px;
+}
+
+.collection-item.avatar {
+    padding-left: 20px !important;
 }

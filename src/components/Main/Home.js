@@ -1,6 +1,6 @@
 import React from 'react';
 import image2 from './images/roman-kraft-P8zDQz8Y2Vc-unsplash.jpg';
-import image1 from './images/ja-ma--gOUx23DNks-unsplash.jpg'
+import image1 from './images/ja-ma--gOUx23DNks-unsplash.jpg';
 import FooterBar from '../Footer/Footer';
 
 class Home extends React.Component {

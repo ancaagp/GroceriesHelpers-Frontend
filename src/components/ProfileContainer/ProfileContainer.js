@@ -206,7 +206,7 @@ class ProfileContainer extends React.Component {
 
 
                 <div className="row">
-                    <div className="col s12">
+                    <div className="col s12"> 
                         <div className="container">
                             {/* About user */}
                             <HelpCardList

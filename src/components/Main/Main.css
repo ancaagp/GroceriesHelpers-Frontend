@@ -4,13 +4,17 @@
     flex-direction: column;
 } */
 
+/* .maps1 {
+    order: 1; 
+margin-top: 5vh; 
+height: 100%;
+} */
+
+
 .maps1 {
     z-index: 5;
-    /* order: 1; */
     position: unset !important;
-    /* margin-top: 5vh; */
     width: 50%;
-    /* height: 100%; */
 }
 
 .help-card-main.container {

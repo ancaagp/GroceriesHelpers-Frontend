@@ -12,7 +12,7 @@ class HelpCardList extends React.Component {
 
       <>
 
-        <div className="col s12 m10">
+        <div className="col s12">
 
           <h4>My contribution</h4>
           <Collection>
@@ -32,7 +32,7 @@ class HelpCardList extends React.Component {
 
         </div>
 
-        <div className="col s12 m10">
+        <div className="col s12">
 
           <h4>My requests</h4>
           <Collection>
