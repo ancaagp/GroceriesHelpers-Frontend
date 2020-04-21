@@ -2,6 +2,8 @@
 
 When you go out and do groceries shopping for yourself, why not buy something small for someone else who cannot leave the house?
 
+**Link to the project**: https://grocerieshelpers.herokuapp.com/
+
 **Features:**
 
 Help your community
