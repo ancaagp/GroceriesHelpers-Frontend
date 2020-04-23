@@ -101,12 +101,7 @@ class HomepageContainer extends React.Component {
                                         </p>
                                 </div>
                             </div>
-
-
-
                         </div>
-
-
                     </div>
                 </div>
 

@@ -45,52 +45,6 @@ class HelpCardHelper extends React.Component {
 
       return (
 <>
-{/* <div className="container">
-{this.state.requestor &&
-
-<div className="col s12">
-    <div className="card horizontal">
-        {!isMobile &&
-            <div className="card-image">
-                <img src={image} />
-            </div>
-        } 
-
-        <div className="card-stacked">
-
-            <div className="card-content">
-
-              
-                <p>{`This request is: ${LabelConversion.getStatus(this.props.grocery.status)}`}</p>
-                <p>Groceries needed: {this.props.grocery.groceries}</p>
-                <br/>
-                <p style={boldText}>Contact information:</p>
-                <span className="title">This request was created by: {this.state.requestor.firstName} {this.state.requestor.lastName}
-                    {this.state.requestor.intro &&
-                        <p>About: {this.state.requestor.intro}</p>
-                    }
-
-                    <br />
-                    Phone number: {this.state.requestor.phoneNumber}
-                </span>
-                <p>
-                    Delivery address: {this.props.grocery.address}
-                    <br />  Additional info: {this.props.grocery.description}<br />
-                    {`I need this: ${LabelConversion.getTimeline(this.props.grocery.timeline)}`}
-                    <br />
-
-                </p>
-                <p>Created on: {Moment(this.props.grocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
-            </div>
-
-        </div>
-    </div>
-
-</div>
-    }
-</div> */}
-
-{/* ORRRRRRRRRRRRRRRRRRR */}
 
 <div className="col s12">
     <div className="card horizontal">

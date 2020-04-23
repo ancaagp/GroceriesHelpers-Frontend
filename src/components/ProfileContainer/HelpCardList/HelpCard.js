@@ -25,44 +25,6 @@ class HelpCard extends React.Component {
 
     return (
       <>
-        {/* <div className="col s12">
-    <div className="card horizontal">
-        {!isMobile &&
-            <div className="card-image">
-                <img src={image2} />
-            </div>
-        } 
-
-          {this.state.requestor &&
-            <CollectionItem className="avatar">
-              <div className="helpCard">
-                <p>{`This request is: ${LabelConversion.getStatus(this.props.grocery.status)}`}</p>
-                <p>Groceries needed: {this.props.grocery.groceries}</p>
-                <br/>
-                <p style={boldText}>Contact information:</p>
-                <p>This request was created by: {this.state.requestor.firstName} {this.state.requestor.lastName}</p>
-                    {this.state.requestor.intro &&
-                        <p>About: {this.state.requestor.intro}</p>
-                    }
-                   <p> Phone number: {this.state.requestor.phoneNumber}</p>
-                <p>
-                    Delivery address: {this.props.grocery.address}
-                    <br />  Additional info: {this.props.grocery.description}<br />
-                    {`I need this: ${LabelConversion.getTimeline(this.props.grocery.timeline)}`}
-                    <br />
-
-                </p>
-                <p>Created on: {Moment(this.props.grocery.createdAt).format("MMMM Do YYYY, HH:mm")}</p>
-              </div>
-            </CollectionItem>
-          }
-        </div>
-
-        </div> */}
-
-
-
-        {/* OR */}
 
         <div className="col s12">
           <div className="card horizontal">

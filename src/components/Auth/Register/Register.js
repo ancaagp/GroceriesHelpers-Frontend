@@ -5,7 +5,7 @@ class Register extends React.Component {
   state = {
     firstName: '',
     lastName: '',
-    address: '',
+    address: null,
     lat: null,
     lng: null,
     phoneNumber: '',
@@ -68,12 +68,19 @@ class Register extends React.Component {
               >
             </input>
           </label>
+
           <label>Address*
             <AddressAutocomplete 
                 handleChangeAutocomplete={this.handleChangeAutocomplete}
                 required
                 />
           </label>
+          {
+             this.state.address && !this.state.lat && !this.state.lng &&
+            <div>
+              <label>Please select a valid address.</label>
+            </div>
+          }
       
           <label>Phone number
             <input
@@ -97,6 +104,12 @@ class Register extends React.Component {
             </input>
           </label>
           <br />
+          {
+        this.props.errorRegister === 2 && 
+        <div>
+          <label className="errorMsg">Email already exists.</label>
+        </div>
+      }
 
           <label>Password (min 8 characters)*
             <input
@@ -105,12 +118,13 @@ class Register extends React.Component {
               className="validate"
               value={this.state.password}
               onChange={this.handleChange}
-              minlength="8"
+              minLength="8"
               required>
             </input>
           </label>
 
           <br />
+
           <label>Re-enter Password*
             <input
               type="password"
@@ -118,10 +132,14 @@ class Register extends React.Component {
               className="validate"
               value={this.state.password2}
               onChange={this.handleChange}
-              minlength="8"
+              minLength="8"
               required>
             </input>
           </label>
+          {
+            this.state.password2 !== this.state.password && 
+            <label className="errorMsg">Password doesn't match.</label>
+          }
 
           <br />
           <p>

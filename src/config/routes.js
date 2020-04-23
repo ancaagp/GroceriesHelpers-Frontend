@@ -38,25 +38,6 @@ const Routes = (props) => {
                 }
             />
 
-            {/* <Route
-                path='/register'
-                render={
-                    () => props.user ?
-                        <Redirect to="/" />
-                        :
-                        <Register register={props.register} />
-                }
-            />
-            <Route
-                path='/login'
-                render={
-                    () => props.user ?
-                        <Redirect to="/offerhelp" />
-                        :
-                        <Login login={props.login} />
-                }
-            /> */}
-
             <Route
                 path='/loginregister'
                 render={
@@ -65,7 +46,10 @@ const Routes = (props) => {
                         :
                         <LoginRegister 
                             register={props.register}
-                            login={props.login} />
+                            login={props.login} 
+                            errorLogin={props.errorLogin}
+                            errorRegister={props.errorRegister}
+                            />
                 }
             />
 

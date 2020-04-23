@@ -75,9 +75,14 @@ h3, h2 {
 
   .selected-groceries {
       text-align: center;
+      margin-top: 0;
   }
 
   .cardMap {
     font-family: 'Comfortaa', serif;
     color: #393e46 !important;
+  }
+
+  .mainCardMaps {
+      margin-bottom: 50px;
   }

@@ -9,7 +9,6 @@ class HelpCardList extends React.Component {
   render() {
     return (
 
-
       <>
 
         <div className="col s12">

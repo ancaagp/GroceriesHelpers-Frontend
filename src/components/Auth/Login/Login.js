@@ -25,6 +25,13 @@ class Login extends React.Component {
     return(
       <div className="login">
         <form>
+        {
+        this.props.errorLogin && 
+        <div>
+        <label className="errorMsg">Email or password are incorrect.</label>
+        </div>
+
+      }
           <label>Email* 
             <input
               type="email"

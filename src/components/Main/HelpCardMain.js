@@ -48,7 +48,7 @@ class HelpCardMain extends React.Component {
 
                 <div className="col s12 m7">
                     <h4 className="header selected-groceries">Selected groceries list</h4>
-                    <div className="card horizontal">
+                    <div className="card horizontal mainCardMaps">
                         {!isMobile &&
                             <div className="card-image">
                                 <img src={image} />

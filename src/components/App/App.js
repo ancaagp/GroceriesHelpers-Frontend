@@ -5,7 +5,6 @@ import Routes from '../../config/routes'
 import UserApi from '../../api/UserAPI';
 import Header from '../Header/Header';
 import FooterBar from '../Footer/Footer';
-// import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -15,7 +14,9 @@ class App extends React.Component {
     user: '',
     id: '',
     lat: '',
-    lng: ''
+    lng: '',
+    errorLogin: null,
+    errorRegister: null
   }
 
   static initializeGoogleLib(callbackGoogleLib) {
@@ -73,7 +74,17 @@ class App extends React.Component {
           })
         }
       })
-      .catch(err => console.log(err));
+      .catch(err  => {
+        if (err) {
+          this.setState({
+            errorRegister: err.response.data.errorCode
+          })
+        }
+      });
+  }
+
+  catch =(err) => {
+
   }
 
   login = (user) => {
@@ -97,7 +108,13 @@ class App extends React.Component {
         })
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      if (err) {
+        this.setState({
+          errorLogin: err
+        })
+      }
+    });
   }
 
   logout = () => {
@@ -129,6 +146,8 @@ class App extends React.Component {
           location={{lat: this.state.lat, lng: this.state.lng}}
           login={this.login}
           register={this.register}
+          errorLogin={this.state.errorLogin}
+          errorRegister={this.state.errorRegister}
         />
         </div>
         {/* <FooterBar /> */}

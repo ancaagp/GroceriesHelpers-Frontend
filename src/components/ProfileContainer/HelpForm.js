@@ -58,7 +58,6 @@ class HelpForm extends React.Component {
 
     render() {
         return (
-            // <div className="modal-content postForm">
                 <form className="requestForm">
                     <label>Tell us what groceries you need (max 10 items):</label>
                     <div className="row">
@@ -79,7 +78,6 @@ class HelpForm extends React.Component {
                             <option value="2">By tomorrow</option>
                             <option value="3">Some day this week</option>
                         </select>
-                        {/* <input name="timeline" onChange={this.handleChange}/> */}
                     </label>
 
                     <label>Where should we have them delivered?
@@ -94,7 +92,6 @@ class HelpForm extends React.Component {
                     </label>
 
                 </form>
-            // </div>
         )
     }
 }

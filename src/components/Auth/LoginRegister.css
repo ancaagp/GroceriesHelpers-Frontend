@@ -16,4 +16,9 @@
 
 h5 {
     margin: 30px;
+    text-align: center;
+}
+
+.errorMsg {
+    color: red;
 }
